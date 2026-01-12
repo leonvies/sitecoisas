@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolve+ | Soluções e Parcerias</title>
+    <title>Resolve+ | Portal de Serviços</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -11,249 +11,230 @@
         
         body {
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
-        .hero-gradient {
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
-                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
+        .hero-bg {
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
         }
 
-        .glass-card {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.05);
+        .glass-portal-card {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(59, 130, 246, 0.5);
-            transform: translateY(-8px);
+        .glass-portal-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: scale(1.02) translateY(-10px);
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden-view {
+            display: none;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-    <!-- Navegação -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="bg-blue-600 p-2 rounded-lg text-white">
-                        <i data-lucide="plus-circle" class="w-8 h-8"></i>
-                    </div>
-                    <span class="text-2xl font-bold tracking-tight text-slate-800">Resolve<span class="text-blue-600">+</span></span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#inicio" class="text-slate-600 hover:text-blue-600 font-medium transition">Início</a>
-                    <a href="#servicos" class="text-slate-600 hover:text-blue-600 font-medium transition">Serviços</a>
-                    <a href="#parceiros" class="text-slate-600 hover:text-blue-600 font-medium transition">Ser Parceiro</a>
-                    <a href="#contacto" class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                        Pedir Orçamento
-                    </a>
-                </div>
+    <!-- VIEW 1: PORTAL DE SELECÇÃO -->
+    <div id="view-selection" class="hero-bg min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        <!-- Elementos Decorativos -->
+        <div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-600/10 blur-[120px] rounded-full"></div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+        <div class="max-w-6xl w-full relative z-10 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-12">
+                <div class="bg-blue-600 p-3 rounded-2xl text-white shadow-xl shadow-blue-900/40">
+                    <i data-lucide="plus-circle" class="w-10 h-10"></i>
                 </div>
+                <span class="text-4xl font-bold tracking-tight text-white">Resolve<span class="text-blue-500">+</span></span>
             </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section com Escolha de Caminho -->
-    <section id="inicio" class="hero-gradient min-h-screen flex items-center justify-center text-center text-white px-4 pt-24 pb-12">
-        <div class="max-w-6xl w-full">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight">
-                A solução ideal para <br><span class="text-blue-400">quem precisa e quem faz</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                Como podemos ajudar <br><span class="text-blue-400">hoje?</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-16 max-w-2xl mx-auto">
-                Liderança em prestação de serviços e a melhor plataforma para profissionais crescerem.
-            </p>
+            <p class="text-slate-400 text-lg mb-16 max-w-xl mx-auto">Seja bem-vindo à Resolve+. Escolha o seu caminho para uma experiência personalizada.</p>
 
-            <!-- Cards Superiores Inteligentes -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Caminho do Cliente -->
-                <div onclick="document.getElementById('servicos').scrollIntoView({behavior: 'smooth'})" class="glass-card p-8 rounded-3xl cursor-pointer text-left group">
-                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="search-code" class="w-8 h-8"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Card Cliente -->
+                <button onclick="switchView('client')" class="glass-portal-card p-10 rounded-[2.5rem] text-left group">
+                    <div class="w-20 h-20 bg-blue-600 text-white rounded-3xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform shadow-lg shadow-blue-600/20">
+                        <i data-lucide="search-code" class="w-10 h-10"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3">Quero contratar serviços</h2>
-                    <p class="text-slate-400 mb-6">Encontre os melhores profissionais para pintura, jardinagem e remodelações.</p>
-                    <div class="flex items-center text-blue-400 font-bold">
-                        Explorar Categorias <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    <h2 class="text-3xl font-bold text-white mb-4">Quero contratar serviços</h2>
+                    <p class="text-slate-400 text-lg mb-8">Procuro profissionais qualificados para pintura, jardinagem, remodelações e manutenção residencial.</p>
+                    <div class="inline-flex items-center text-blue-400 font-bold text-lg">
+                        Encontrar Profissional <i data-lucide="arrow-right" class="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform"></i>
                     </div>
-                </div>
+                </button>
 
-                <!-- Caminho do Profissional -->
-                <div onclick="document.getElementById('parceiros').scrollIntoView({behavior: 'smooth'})" class="glass-card p-8 rounded-3xl cursor-pointer text-left group">
-                    <div class="w-16 h-16 bg-emerald-600 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="briefcase" class="w-8 h-8"></i>
+                <!-- Card Profissional -->
+                <button onclick="switchView('professional')" class="glass-portal-card p-10 rounded-[2.5rem] text-left group">
+                    <div class="w-20 h-20 bg-emerald-600 text-white rounded-3xl flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform shadow-lg shadow-emerald-600/20">
+                        <i data-lucide="briefcase" class="w-10 h-10"></i>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3">Quero oferecer serviços</h2>
-                    <p class="text-slate-400 mb-6">Junte-se à nossa equipa, receba pedidos e aumente o seu volume de trabalho.</p>
-                    <div class="flex items-center text-emerald-400 font-bold">
-                        Registar como Profissional <i data-lucide="user-plus" class="ml-2 w-5 h-5"></i>
+                    <h2 class="text-3xl font-bold text-white mb-4">Sou um profissional</h2>
+                    <p class="text-slate-400 text-lg mb-8">Quero registar a minha empresa ou serviços para receber novos pedidos e expandir o meu negócio.</p>
+                    <div class="inline-flex items-center text-emerald-400 font-bold text-lg">
+                        Registar os meus Serviços <i data-lucide="user-plus" class="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform"></i>
                     </div>
-                </div>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Stats Section -->
-    <section class="py-12 bg-white border-b">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <p class="text-3xl font-bold text-blue-600">10+</p>
-                <p class="text-slate-500 font-medium">Anos de Experiência</p>
-            </div>
-            <div>
-                <p class="text-3xl font-bold text-blue-600">1200+</p>
-                <p class="text-slate-500 font-medium">Parceiros Ativos</p>
-            </div>
-            <div>
-                <p class="text-3xl font-bold text-blue-600">5000+</p>
-                <p class="text-slate-500 font-medium">Serviços Resolvidos</p>
-            </div>
-            <div>
-                <p class="text-3xl font-bold text-blue-600">4.9/5</p>
-                <p class="text-slate-500 font-medium">Avaliação Média</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Serviços (Contratação) -->
-    <section id="servicos" class="py-24 px-4 bg-slate-50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Contratação Rápida</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Principais Serviços</h3>
-                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Pintura -->
-                <div id="card-pintura" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <i data-lucide="paint-bucket" class="w-8 h-8"></i>
+    <!-- VIEW 2: PÁGINA DO CLIENTE -->
+    <div id="view-client" class="hidden-view fade-in">
+        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20 items-center">
+                    <button onclick="switchView('selection')" class="flex items-center space-x-2 group">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-blue-600 group-hover:-translate-x-1 transition-transform"></i>
+                        <span class="font-bold text-slate-800">Voltar ao Início</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-2xl font-bold text-slate-800">Resolve<span class="text-blue-600">+</span></span>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Pintura</h4>
-                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Interiores e Fachadas</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Tratamento de Paredes</li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-blue-50 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Pedir Orçamento</a>
-                </div>
-
-                <!-- Remodelação -->
-                <div id="card-remodelacao" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
-                    <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
-                        <i data-lucide="hammer" class="w-8 h-8"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Remodelação</h4>
-                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Cozinhas e WCs</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Pladur e Eletricidade</li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-orange-50 text-orange-600 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Pedir Orçamento</a>
-                </div>
-
-                <!-- Granito -->
-                <div id="card-granito" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
-                    <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-6">
-                        <i data-lucide="layers" class="w-8 h-8"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Granito & Pedra</h4>
-                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Bancadas e Escadas</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Soleiras e Revestimento</li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-slate-100 text-slate-700 py-3 rounded-xl font-bold hover:bg-slate-700 hover:text-white transition">Pedir Orçamento</a>
-                </div>
-
-                <!-- Jardinagem -->
-                <div id="card-jardinagem" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
-                    <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
-                        <i data-lucide="sprout" class="w-8 h-8"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Jardinagem</h4>
-                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Manutenção e Podas</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Sistemas de Rega</li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-green-50 text-green-600 py-3 rounded-xl font-bold hover:bg-green-600 hover:text-white transition">Pedir Orçamento</a>
+                    <a href="#contacto" class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition">Contactar</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Registo de Profissionais -->
-    <section id="parceiros" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="bg-slate-900 rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden relative">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full"></div>
-                
-                <div class="lg:w-1/2 relative z-10">
-                    <h2 class="text-emerald-400 font-bold uppercase tracking-wider text-sm mb-4">Para Profissionais</h2>
-                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6">Seja um parceiro de confiança Resolve+</h3>
-                    <p class="text-slate-400 text-lg mb-8">Receba pedidos de trabalho qualificados diretamente no seu telemóvel e gerencie os seus orçamentos com facilidade.</p>
+        <section class="pt-32 pb-24 px-4 bg-slate-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-3">Serviços Disponíveis</h2>
+                    <h3 class="text-4xl font-bold text-slate-800">O que podemos resolver hoje?</h3>
+                    <div class="w-20 h-1.5 bg-blue-600 mx-auto mt-6 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Cards de Serviço (Reutilizados) -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-xl transition-shadow">
+                        <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="paint-bucket"></i></div>
+                        <h4 class="text-xl font-bold mb-3">Pintura</h4>
+                        <p class="text-slate-500 text-sm mb-6 flex-grow">Pintura de interiores, exteriores e tratamento especializado de paredes.</p>
+                        <a href="#contacto" class="text-center bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">Pedir Orçamento</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-xl transition-shadow">
+                        <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="hammer"></i></div>
+                        <h4 class="text-xl font-bold mb-3">Remodelação</h4>
+                        <p class="text-slate-500 text-sm mb-6 flex-grow">Obras completas em cozinhas, WCs e espaços comerciais.</p>
+                        <a href="#contacto" class="text-center bg-orange-600 text-white py-3 rounded-xl font-bold hover:bg-orange-700 transition">Pedir Orçamento</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-xl transition-shadow">
+                        <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="layers"></i></div>
+                        <h4 class="text-xl font-bold mb-3">Granito & Pedra</h4>
+                        <p class="text-slate-500 text-sm mb-6 flex-grow">Bancadas, escadarias e pavimentos em pedra natural de alta qualidade.</p>
+                        <a href="#contacto" class="text-center bg-slate-800 text-white py-3 rounded-xl font-bold hover:bg-slate-900 transition">Pedir Orçamento</a>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col h-full hover:shadow-xl transition-shadow">
+                        <div class="w-14 h-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="sprout"></i></div>
+                        <h4 class="text-xl font-bold mb-3">Jardinagem</h4>
+                        <p class="text-slate-500 text-sm mb-6 flex-grow">Manutenção de espaços verdes, podas e sistemas de rega.</p>
+                        <a href="#contacto" class="text-center bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition">Pedir Orçamento</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contacto Simples para Clientes -->
+        <section id="contacto" class="py-24 bg-white px-4">
+            <div class="max-w-3xl mx-auto bg-slate-900 text-white rounded-[3rem] p-10 md:p-16 text-center">
+                <h3 class="text-3xl font-bold mb-6">Solicite um Orçamento</h3>
+                <p class="text-slate-400 mb-10">Deixe o seu contacto e entraremos em contacto brevemente para agendar uma visita.</p>
+                <form class="space-y-4 max-w-md mx-auto">
+                    <input type="text" placeholder="Seu Nome" class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 outline-none focus:border-blue-500">
+                    <input type="tel" placeholder="Seu Telemóvel" class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 outline-none focus:border-blue-500">
+                    <button class="w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-2xl font-bold text-lg transition shadow-xl shadow-blue-900/40">Solicitar Contacto Gratuito</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- VIEW 3: PÁGINA DO PROFISSIONAL -->
+    <div id="view-professional" class="hidden-view fade-in">
+        <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20 items-center">
+                    <button onclick="switchView('selection')" class="flex items-center space-x-2 group">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-emerald-500 group-hover:-translate-x-1 transition-transform"></i>
+                        <span class="font-bold text-white">Voltar ao Início</span>
+                    </button>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-2xl font-bold text-white">Resolve<span class="text-emerald-500">+</span> Parceiros</span>
+                    </div>
+                    <div class="hidden md:block text-slate-400 text-sm font-medium">Suporte: 912 345 678</div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="pt-32 pb-24 px-4 bg-white">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4">Área do Parceiro</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">Expanda o seu negócio com a nossa rede</h3>
+                    <p class="text-slate-600 text-lg mb-10 leading-relaxed">A Resolve+ liga profissionais de excelência a clientes que valorizam a qualidade. Ao registar-se, passa a ter acesso a uma plataforma de gestão de leads e orçamentos simplificada.</p>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center text-white"><i data-lucide="trending-up" class="w-5 h-5 mr-2 text-emerald-400"></i> Aumento de Faturação</div>
-                        <div class="flex items-center text-white"><i data-lucide="shield-check" class="w-5 h-5 mr-2 text-emerald-400"></i> Pagamentos Seguros</div>
-                        <div class="flex items-center text-white"><i data-lucide="clock" class="w-5 h-5 mr-2 text-emerald-400"></i> Flexibilidade de Horários</div>
-                        <div class="flex items-center text-white"><i data-lucide="award" class="w-5 h-5 mr-2 text-emerald-400"></i> Visibilidade de Marca</div>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-emerald-50 transition">
+                            <div class="bg-emerald-100 p-3 rounded-xl text-emerald-600"><i data-lucide="trending-up" class="w-6 h-6"></i></div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-1">Mais Clientes Reais</h5>
+                                <p class="text-slate-500 text-sm">Nada de curiosos. Receba pedidos de pessoas prontas a contratar.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-emerald-50 transition">
+                            <div class="bg-emerald-100 p-3 rounded-xl text-emerald-600"><i data-lucide="shield-check" class="w-6 h-6"></i></div>
+                            <div>
+                                <h5 class="font-bold text-slate-900 mb-1">Marca de Confiança</h5>
+                                <p class="text-slate-500 text-sm">Associe o seu trabalho ao selo de qualidade Resolve+.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="lg:w-1/2 w-full bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 relative z-10">
-                    <form class="space-y-4">
-                        <input type="text" placeholder="Nome Profissional / Empresa" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500">
-                        <input type="text" placeholder="Área de Atuação (ex: Pintor)" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500">
-                        <input type="email" placeholder="Email de Contacto" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500">
-                        <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition shadow-xl shadow-emerald-900/20">Criar Perfil de Profissional</button>
+                <div class="bg-slate-900 rounded-[3rem] p-10 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full"></div>
+                    <h4 class="text-2xl font-bold text-white mb-8">Formulário de Registo</h4>
+                    <form class="space-y-5">
+                        <div class="space-y-2">
+                            <label class="text-slate-400 text-sm font-semibold ml-1">Nome ou Nome da Empresa</label>
+                            <input type="text" class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white outline-none focus:border-emerald-500">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-slate-400 text-sm font-semibold ml-1">Especialidade Principal</label>
+                            <select class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white outline-none focus:border-emerald-500">
+                                <option class="text-slate-900">Pintura</option>
+                                <option class="text-slate-900">Remodelação</option>
+                                <option class="text-slate-900">Granito & Pedra</option>
+                                <option class="text-slate-900">Jardinagem</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-slate-400 text-sm font-semibold ml-1">Email de Negócio</label>
+                            <input type="email" class="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-white outline-none focus:border-emerald-500">
+                        </div>
+                        <button class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-5 rounded-2xl font-bold text-xl transition-all shadow-xl shadow-emerald-900/40 mt-4">Submeter Candidatura</button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Contacto -->
-    <section id="contacto" class="py-24 bg-slate-50 relative">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16">
-            <div class="lg:w-1/2">
-                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Contacto</h2>
-                <h3 class="text-3xl md:text-5xl font-bold mb-8">Dúvidas ou <br>Orçamentos?</h3>
-                <p class="text-slate-500 text-lg mb-10">Estamos aqui para ajudar a concretizar o seu projeto.</p>
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4"><div class="bg-blue-600/10 p-3 rounded-full text-blue-600"><i data-lucide="phone" class="w-6 h-6"></i></div><span class="text-xl">+351 912 345 678</span></div>
-                    <div class="flex items-center space-x-4"><div class="bg-blue-600/10 p-3 rounded-full text-blue-600"><i data-lucide="mail" class="w-6 h-6"></i></div><span class="text-xl">geral@resolvemais.pt</span></div>
-                </div>
-            </div>
-
-            <div class="lg:w-1/2 bg-white rounded-3xl p-8 md:p-10 shadow-2xl shadow-slate-200">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2"><label class="font-semibold text-sm">Nome</label><input type="text" placeholder="O seu nome" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                        <div class="space-y-2"><label class="font-semibold text-sm">Contacto</label><input type="tel" placeholder="O seu telemóvel" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition">Enviar Mensagem</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white py-12 border-t border-slate-100">
+    <!-- Footer Geral -->
+    <footer id="footer" class="hidden-view bg-white py-12 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center space-x-2">
                 <div class="bg-blue-600 p-1.5 rounded-md text-white"><i data-lucide="plus-circle" class="w-5 h-5"></i></div>
@@ -263,23 +244,35 @@
         </div>
     </footer>
 
-    <!-- Toast -->
-    <div id="toast" class="fixed bottom-8 right-8 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-[100] flex items-center">
-        <i data-lucide="check-circle" class="mr-3 text-emerald-400"></i> Mensagem enviada com sucesso!
-    </div>
-
     <script>
         lucide.createIcons();
 
-        document.getElementById('contact-form').onsubmit = (e) => {
-            e.preventDefault();
-            const toast = document.getElementById('toast');
-            toast.classList.remove('translate-y-24', 'opacity-0');
-            setTimeout(() => { toast.classList.add('translate-y-24', 'opacity-0'); }, 4000);
-        };
+        function switchView(view) {
+            const selection = document.getElementById('view-selection');
+            const client = document.getElementById('view-client');
+            const professional = document.getElementById('view-professional');
+            const footer = document.getElementById('footer');
 
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        mobileBtn.onclick = () => { alert('Funcionalidade de menu em desenvolvimento.'); };
+            // Resetar scroll
+            window.scrollTo({ top: 0, behavior: 'instant' });
+
+            if (view === 'selection') {
+                selection.style.display = 'flex';
+                client.style.display = 'none';
+                professional.style.display = 'none';
+                footer.style.display = 'none';
+            } else if (view === 'client') {
+                selection.style.display = 'none';
+                client.style.display = 'block';
+                professional.style.display = 'none';
+                footer.style.display = 'block';
+            } else if (view === 'professional') {
+                selection.style.display = 'none';
+                client.style.display = 'none';
+                professional.style.display = 'block';
+                footer.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
