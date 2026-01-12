@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="pt-PT" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolve+ | Complete Solutions</title>
+    <title>Resolve+ | Soluções e Parcerias</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -14,16 +14,23 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000');
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
         }
 
-        .search-container {
-            backdrop-filter: blur(10px);
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
             background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-8px);
         }
 
         .service-card:hover {
@@ -34,7 +41,7 @@
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-    <!-- Navigation -->
+    <!-- Navegação -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -46,11 +53,11 @@
                 </div>
                 
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="text-slate-600 hover:text-blue-600 font-medium transition">Home</a>
-                    <a href="#services" class="text-slate-600 hover:text-blue-600 font-medium transition">Services</a>
-                    <a href="#gallery" class="text-slate-600 hover:text-blue-600 font-medium transition">Projects</a>
-                    <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                        Get a Quote
+                    <a href="#inicio" class="text-slate-600 hover:text-blue-600 font-medium transition">Início</a>
+                    <a href="#servicos" class="text-slate-600 hover:text-blue-600 font-medium transition">Serviços</a>
+                    <a href="#parceiros" class="text-slate-600 hover:text-blue-600 font-medium transition">Ser Parceiro</a>
+                    <a href="#contacto" class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+                        Pedir Orçamento
                     </a>
                 </div>
 
@@ -63,39 +70,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Unified Input -->
-    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center text-center text-white px-4 pt-20">
-        <div class="max-w-5xl w-full">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Everything you need in <span class="text-blue-400">one place</span>
+    <!-- Hero Section com Escolha de Caminho -->
+    <section id="inicio" class="hero-gradient min-h-screen flex items-center justify-center text-center text-white px-4 pt-24 pb-12">
+        <div class="max-w-6xl w-full">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-4 leading-tight">
+                A solução ideal para <br><span class="text-blue-400">quem precisa e quem faz</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-                Painting, remodeling, gardening and much more. Choose your service and we'll solve it with professional excellence.
+            <p class="text-lg md:text-xl text-slate-300 mb-16 max-w-2xl mx-auto">
+                Liderança em prestação de serviços e a melhor plataforma para profissionais crescerem.
             </p>
 
-            <!-- Unified Search Bar -->
-            <div class="search-container max-w-3xl mx-auto p-2 rounded-2xl md:rounded-full shadow-2xl flex flex-col md:flex-row items-center gap-2">
-                <div class="flex items-center w-full px-6 py-3 md:py-0">
-                    <i data-lucide="search" class="text-blue-400 w-5 h-5 mr-3"></i>
-                    <select id="hero-service-select" class="bg-transparent w-full text-white outline-none cursor-pointer text-lg font-medium appearance-none">
-                        <option value="" class="text-slate-900">What would you like to solve today?</option>
-                        <option value="painting" class="text-slate-900">I need Painting</option>
-                        <option value="remodeling" class="text-slate-900">I want to Remodel my House</option>
-                        <option value="granite" class="text-slate-900">Granite Works</option>
-                        <option value="gardening" class="text-slate-900">Garden Maintenance</option>
-                    </select>
+            <!-- Cards Superiores Inteligentes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Caminho do Cliente -->
+                <div onclick="document.getElementById('servicos').scrollIntoView({behavior: 'smooth'})" class="glass-card p-8 rounded-3xl cursor-pointer text-left group">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="search-code" class="w-8 h-8"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-3">Quero contratar serviços</h2>
+                    <p class="text-slate-400 mb-6">Encontre os melhores profissionais para pintura, jardinagem e remodelações.</p>
+                    <div class="flex items-center text-blue-400 font-bold">
+                        Explorar Categorias <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </div>
                 </div>
-                <div class="hidden md:block h-8 w-px bg-white/20"></div>
-                <button onclick="handleHeroSelection()" class="w-full md:w-auto whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-xl md:rounded-full font-bold text-lg transition-all flex items-center justify-center group">
-                    Start Now
-                    <i data-lucide="chevron-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                </button>
-            </div>
 
-            <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-slate-400 font-medium">
-                <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-blue-500"></i> Free Quotes</span>
-                <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-blue-500"></i> Certified Professionals</span>
-                <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-blue-500"></i> Quality Guarantee</span>
+                <!-- Caminho do Profissional -->
+                <div onclick="document.getElementById('parceiros').scrollIntoView({behavior: 'smooth'})" class="glass-card p-8 rounded-3xl cursor-pointer text-left group">
+                    <div class="w-16 h-16 bg-emerald-600 text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="briefcase" class="w-8 h-8"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-3">Quero oferecer serviços</h2>
+                    <p class="text-slate-400 mb-6">Junte-se à nossa equipa, receba pedidos e aumente o seu volume de trabalho.</p>
+                    <div class="flex items-center text-emerald-400 font-bold">
+                        Registar como Profissional <i data-lucide="user-plus" class="ml-2 w-5 h-5"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -105,217 +114,162 @@
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
                 <p class="text-3xl font-bold text-blue-600">10+</p>
-                <p class="text-slate-500 font-medium">Years of Experience</p>
+                <p class="text-slate-500 font-medium">Anos de Experiência</p>
             </div>
             <div>
-                <p class="text-3xl font-bold text-blue-600">500+</p>
-                <p class="text-slate-500 font-medium">Completed Projects</p>
+                <p class="text-3xl font-bold text-blue-600">1200+</p>
+                <p class="text-slate-500 font-medium">Parceiros Ativos</p>
             </div>
             <div>
-                <p class="text-3xl font-bold text-blue-600">100%</p>
-                <p class="text-slate-500 font-medium">Satisfaction</p>
+                <p class="text-3xl font-bold text-blue-600">5000+</p>
+                <p class="text-slate-500 font-medium">Serviços Resolvidos</p>
             </div>
             <div>
-                <p class="text-3xl font-bold text-blue-600">24/7</p>
-                <p class="text-slate-500 font-medium">Customer Support</p>
+                <p class="text-3xl font-bold text-blue-600">4.9/5</p>
+                <p class="text-slate-500 font-medium">Avaliação Média</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 px-4 bg-slate-50">
+    <!-- Serviços (Contratação) -->
+    <section id="servicos" class="py-24 px-4 bg-slate-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">What We Do</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Professional Services</h3>
+                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Contratação Rápida</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Principais Serviços</h3>
                 <div class="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Painting -->
-                <div id="card-painting" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+                <!-- Pintura -->
+                <div id="card-pintura" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="paint-bucket" class="w-8 h-8"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Painting</h4>
-                    <p class="text-slate-600 mb-6 text-sm">Perfect finishes to revitalize your property.</p>
+                    <h4 class="text-xl font-bold mb-3">Pintura</h4>
                     <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Interior Painting</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Exterior Painting</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Damp Treatment</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Interiores e Fachadas</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Tratamento de Paredes</li>
                     </ul>
-                    <a href="#contact" class="block text-center bg-blue-50 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">
-                        Get a Quote
-                    </a>
+                    <a href="#contacto" class="block text-center bg-blue-50 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Pedir Orçamento</a>
                 </div>
 
-                <!-- Remodeling -->
-                <div id="card-remodeling" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+                <!-- Remodelação -->
+                <div id="card-remodelacao" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="hammer" class="w-8 h-8"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Remodeling</h4>
-                    <p class="text-slate-600 mb-6 text-sm">Transforming your house into the home of your dreams.</p>
+                    <h4 class="text-xl font-bold mb-3">Remodelação</h4>
                     <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Kitchens & Bathrooms</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Plumbing & Electricity</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Drywall & Ceilings</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Cozinhas e WCs</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Pladur e Eletricidade</li>
                     </ul>
-                    <a href="#contact" class="block text-center bg-orange-50 text-orange-600 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">
-                        Get a Quote
-                    </a>
+                    <a href="#contacto" class="block text-center bg-orange-50 text-orange-600 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">Pedir Orçamento</a>
                 </div>
 
-                <!-- Granite -->
-                <div id="card-granite" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+                <!-- Granito -->
+                <div id="card-granito" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="layers" class="w-8 h-8"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Granite & Stone</h4>
-                    <p class="text-slate-600 mb-6 text-sm">Elegance and durability of natural stone for your projects.</p>
+                    <h4 class="text-xl font-bold mb-3">Granito & Pedra</h4>
                     <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Kitchen Countertops</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Stair Cladding</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Windowsills & Thresholds</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Bancadas e Escadas</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Soleiras e Revestimento</li>
                     </ul>
-                    <a href="#contact" class="block text-center bg-slate-100 text-slate-700 py-3 rounded-xl font-bold hover:bg-slate-700 hover:text-white transition">
-                        Get a Quote
-                    </a>
+                    <a href="#contacto" class="block text-center bg-slate-100 text-slate-700 py-3 rounded-xl font-bold hover:bg-slate-700 hover:text-white transition">Pedir Orçamento</a>
                 </div>
 
-                <!-- Gardening -->
-                <div id="card-gardening" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
+                <!-- Jardinagem -->
+                <div id="card-jardinagem" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="sprout" class="w-8 h-8"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Gardening</h4>
-                    <p class="text-slate-600 mb-6 text-sm">Creating and maintaining impeccable green spaces.</p>
+                    <h4 class="text-xl font-bold mb-3">Jardinagem</h4>
                     <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Garden Maintenance</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Irrigation Systems</li>
-                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Mowing & Pruning</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Manutenção e Podas</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Sistemas de Rega</li>
                     </ul>
-                    <a href="#contact" class="block text-center bg-green-50 text-green-600 py-3 rounded-xl font-bold hover:bg-green-600 hover:text-white transition">
-                        Get a Quote
-                    </a>
+                    <a href="#contacto" class="block text-center bg-green-50 text-green-600 py-3 rounded-xl font-bold hover:bg-green-600 hover:text-white transition">Pedir Orçamento</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-24 bg-white border-y">
+    <!-- Registo de Profissionais -->
+    <section id="parceiros" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-center md:text-left">
-                <div>
-                    <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Portfolio</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Featured Projects</h3>
+            <div class="bg-slate-900 rounded-[3rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full"></div>
+                
+                <div class="lg:w-1/2 relative z-10">
+                    <h2 class="text-emerald-400 font-bold uppercase tracking-wider text-sm mb-4">Para Profissionais</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6">Seja um parceiro de confiança Resolve+</h3>
+                    <p class="text-slate-400 text-lg mb-8">Receba pedidos de trabalho qualificados diretamente no seu telemóvel e gerencie os seus orçamentos com facilidade.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center text-white"><i data-lucide="trending-up" class="w-5 h-5 mr-2 text-emerald-400"></i> Aumento de Faturação</div>
+                        <div class="flex items-center text-white"><i data-lucide="shield-check" class="w-5 h-5 mr-2 text-emerald-400"></i> Pagamentos Seguros</div>
+                        <div class="flex items-center text-white"><i data-lucide="clock" class="w-5 h-5 mr-2 text-emerald-400"></i> Flexibilidade de Horários</div>
+                        <div class="flex items-center text-white"><i data-lucide="award" class="w-5 h-5 mr-2 text-emerald-400"></i> Visibilidade de Marca</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="group relative overflow-hidden rounded-2xl aspect-video">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
-                        <div><p class="text-blue-400 font-bold text-sm">Remodeling</p><h5 class="text-white font-bold text-lg">Modern Apartment</h5></div>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-2xl aspect-video">
-                    <img src="https://images.unsplash.com/photo-1558905648-31232286a4e2?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
-                        <div><p class="text-blue-400 font-bold text-sm">Granite</p><h5 class="text-white font-bold text-lg">Premium Kitchen</h5></div>
-                    </div>
-                </div>
-                <div class="group relative overflow-hidden rounded-2xl aspect-video">
-                    <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
-                        <div><p class="text-blue-400 font-bold text-sm">Gardening</p><h5 class="text-white font-bold text-lg">Residential Garden</h5></div>
-                    </div>
+                <div class="lg:w-1/2 w-full bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 relative z-10">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Nome Profissional / Empresa" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500">
+                        <input type="text" placeholder="Área de Atuação (ex: Pintor)" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500">
+                        <input type="email" placeholder="Email de Contacto" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500">
+                        <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition shadow-xl shadow-emerald-900/20">Criar Perfil de Profissional</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-slate-900 text-white relative">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 relative z-10">
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16">
             <div class="lg:w-1/2">
-                <h2 class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-3">Contact Us</h2>
-                <h3 class="text-3xl md:text-5xl font-bold mb-8">Ready to get started?</h3>
-                <p class="text-slate-400 text-lg mb-10">Get in touch for a free project quote.</p>
+                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Contacto</h2>
+                <h3 class="text-3xl md:text-5xl font-bold mb-8">Dúvidas ou <br>Orçamentos?</h3>
+                <p class="text-slate-500 text-lg mb-10">Estamos aqui para ajudar a concretizar o seu projeto.</p>
                 <div class="space-y-6">
-                    <div class="flex items-center space-x-4"><div class="bg-blue-600/20 p-3 rounded-full text-blue-400"><i data-lucide="phone" class="w-6 h-6"></i></div><span class="text-xl">+351 912 345 678</span></div>
-                    <div class="flex items-center space-x-4"><div class="bg-blue-600/20 p-3 rounded-full text-blue-400"><i data-lucide="mail" class="w-6 h-6"></i></div><span class="text-xl">info@resolveplus.com</span></div>
+                    <div class="flex items-center space-x-4"><div class="bg-blue-600/10 p-3 rounded-full text-blue-600"><i data-lucide="phone" class="w-6 h-6"></i></div><span class="text-xl">+351 912 345 678</span></div>
+                    <div class="flex items-center space-x-4"><div class="bg-blue-600/10 p-3 rounded-full text-blue-600"><i data-lucide="mail" class="w-6 h-6"></i></div><span class="text-xl">geral@resolvemais.pt</span></div>
                 </div>
             </div>
 
-            <div class="lg:w-1/2 bg-white rounded-3xl p-8 md:p-10 text-slate-900">
+            <div class="lg:w-1/2 bg-white rounded-3xl p-8 md:p-10 shadow-2xl shadow-slate-200">
                 <form id="contact-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2"><label class="font-semibold text-sm">Name</label><input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></div>
-                        <div class="space-y-2"><label class="font-semibold text-sm">Phone</label><input type="tel" placeholder="Your contact" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></div>
+                        <div class="space-y-2"><label class="font-semibold text-sm">Nome</label><input type="text" placeholder="O seu nome" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"></div>
+                        <div class="space-y-2"><label class="font-semibold text-sm">Contacto</label><input type="tel" placeholder="O seu telemóvel" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"></div>
                     </div>
-                    <div class="space-y-2">
-                        <label class="font-semibold text-sm">Service of Interest</label>
-                        <select id="contact-service-select" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="painting">Painting</option>
-                            <option value="remodeling">Remodeling</option>
-                            <option value="granite">Granite</option>
-                            <option value="gardening">Gardening</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="space-y-2"><label class="font-semibold text-sm">Message</label><textarea rows="4" placeholder="Describe your project..." class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></textarea></div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">Send Request</button>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition">Enviar Mensagem</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-500 py-12">
+    <footer class="bg-white py-12 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center space-x-2">
                 <div class="bg-blue-600 p-1.5 rounded-md text-white"><i data-lucide="plus-circle" class="w-5 h-5"></i></div>
-                <span class="text-xl font-bold tracking-tight text-white">Resolve<span class="text-blue-600">+</span></span>
+                <span class="text-xl font-bold tracking-tight text-slate-800">Resolve<span class="text-blue-600">+</span></span>
             </div>
-            <div class="text-sm">&copy; 2024 Resolve+. All rights reserved.</div>
+            <div class="text-sm text-slate-500">&copy; 2024 Resolve+. Todos os direitos reservados.</div>
         </div>
     </footer>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-8 right-8 bg-green-600 text-white px-6 py-3 rounded-xl shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-[100] flex items-center">
-        <i data-lucide="check-circle" class="mr-2"></i> Message sent successfully!
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-[100] flex items-center">
+        <i data-lucide="check-circle" class="mr-3 text-emerald-400"></i> Mensagem enviada com sucesso!
     </div>
 
     <script>
         lucide.createIcons();
-
-        // Unified Selection Logic
-        function handleHeroSelection() {
-            const select = document.getElementById('hero-service-select');
-            const service = select.value;
-            
-            if (!service) {
-                window.location.href = '#services';
-                return;
-            }
-
-            const targetCard = document.getElementById('card-' + service);
-            const contactSelect = document.getElementById('contact-service-select');
-            
-            contactSelect.value = service;
-
-            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            targetCard.classList.add('ring-4', 'ring-blue-500', 'scale-105');
-            setTimeout(() => {
-                targetCard.classList.remove('ring-4', 'ring-blue-500', 'scale-105');
-            }, 2000);
-        }
-
-        const btn = document.getElementById('mobile-menu-btn');
-        btn.onclick = () => { alert('Mobile menu feature coming soon.'); };
 
         document.getElementById('contact-form').onsubmit = (e) => {
             e.preventDefault();
@@ -323,6 +277,9 @@
             toast.classList.remove('translate-y-24', 'opacity-0');
             setTimeout(() => { toast.classList.add('translate-y-24', 'opacity-0'); }, 4000);
         };
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        mobileBtn.onclick = () => { alert('Funcionalidade de menu em desenvolvimento.'); };
     </script>
 </body>
 </html>
