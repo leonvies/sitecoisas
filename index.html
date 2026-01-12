@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolve+ | Pintura, Remodelação e Jardinagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-blue-600 p-2 rounded-lg text-white">
+                        <i data-lucide="plus-circle" class="w-8 h-8"></i>
+                    </div>
+                    <span class="text-2xl font-bold tracking-tight text-slate-800">Resolve<span class="text-blue-600">+</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-slate-600 hover:text-blue-600 font-medium transition">Início</a>
+                    <a href="#servicos" class="text-slate-600 hover:text-blue-600 font-medium transition">Serviços</a>
+                    <a href="#galeria" class="text-slate-600 hover:text-blue-600 font-medium transition">Projetos</a>
+                    <a href="#contacto" class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+                        Pedir Orçamento
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Transformamos o seu espaço com <span class="text-blue-400">Excelência</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+                Especialistas em pintura, remodelações gerais, trabalhos em granito e manutenção de jardins. Qualidade garantida para a sua casa ou empresa.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#servicos" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center">
+                    Ver Nossos Serviços
+                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+                <a href="#contacto" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg transition">
+                    Contacto Direto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-3xl font-bold text-blue-600">10+</p>
+                <p class="text-slate-500 font-medium">Anos de Experiência</p>
+            </div>
+            <div>
+                <p class="text-3xl font-bold text-blue-600">500+</p>
+                <p class="text-slate-500 font-medium">Projetos Concluídos</p>
+            </div>
+            <div>
+                <p class="text-3xl font-bold text-blue-600">100%</p>
+                <p class="text-slate-500 font-medium">Satisfação</p>
+            </div>
+            <div>
+                <p class="text-3xl font-bold text-blue-600">24/7</p>
+                <p class="text-slate-500 font-medium">Suporte ao Cliente</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-24 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">O que fazemos</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Serviços Profissionais</h3>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pintura -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="paint-bucket" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Pintura</h4>
+                    <p class="text-slate-600 mb-4">Interiores e exteriores com acabamentos de alta qualidade e proteção duradoura.</p>
+                </div>
+
+                <!-- Remodelação -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="hammer" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Remodelação</h4>
+                    <p class="text-slate-600 mb-4">Renovação completa de cozinhas, casas de banho e espaços comerciais.</p>
+                </div>
+
+                <!-- Granito -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Granito & Pedra</h4>
+                    <p class="text-slate-600 mb-4">Instalação de bancadas, pavimentos e revestimentos em pedra natural.</p>
+                </div>
+
+                <!-- Jardinagem -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="sprout" class="w-8 h-8"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Jardinagem</h4>
+                    <p class="text-slate-600 mb-4">Manutenção, plantação e design de espaços verdes residenciais e públicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria / Projetos -->
+    <section id="galeria" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Portfólio</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Projetos em Destaque</h3>
+                </div>
+                <p class="text-slate-500 max-w-md">Uma pequena amostra da dedicação e detalhe que colocamos em cada obra realizada.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Remodelação Interior" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
+                        <div>
+                            <p class="text-blue-400 font-bold text-sm">Remodelação</p>
+                            <h5 class="text-white font-bold text-lg">Apartamento Moderno</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1558905648-31232286a4e2?auto=format&fit=crop&q=80&w=800" alt="Trabalho em Granito" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
+                        <div>
+                            <p class="text-blue-400 font-bold text-sm">Granito</p>
+                            <h5 class="text-white font-bold text-lg">Cozinha em Granito Negro</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video">
+                    <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800" alt="Jardinagem" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
+                        <div>
+                            <p class="text-blue-400 font-bold text-sm">Jardinagem</p>
+                            <h5 class="text-white font-bold text-lg">Jardim Residencial</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 bg-slate-900 text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 relative z-10">
+            <div class="lg:w-1/2">
+                <h2 class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-3">Fale Connosco</h2>
+                <h3 class="text-3xl md:text-5xl font-bold mb-8">Pronto para começar o seu projeto?</h3>
+                <p class="text-slate-400 text-lg mb-10">
+                    Entre em contacto para um orçamento gratuito. A nossa equipa está disponível para responder a todas as suas questões.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-600/20 p-3 rounded-full text-blue-400">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xl">+351 912 345 678</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-600/20 p-3 rounded-full text-blue-400">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xl">geral@resolvemais.pt</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-600/20 p-3 rounded-full text-blue-400">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xl">Lisboa, Portugal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 bg-white rounded-3xl p-8 md:p-10 text-slate-900">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="font-semibold text-sm text-slate-700">Nome</label>
+                            <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-semibold text-sm text-slate-700">Telemóvel</label>
+                            <input type="tel" placeholder="Seu contacto" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-semibold text-sm text-slate-700">Serviço de Interesse</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                            <option>Pintura</option>
+                            <option>Remodelação</option>
+                            <option>Granito</option>
+                            <option>Jardinagem</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-semibold text-sm text-slate-700">Mensagem</label>
+                        <textarea rows="4" placeholder="Descreva brevemente o seu projeto..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+                        Enviar Pedido de Orçamento
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center space-x-2">
+                <div class="bg-blue-600 p-1.5 rounded-md text-white">
+                    <i data-lucide="plus-circle" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">Resolve<span class="text-blue-600">+</span></span>
+            </div>
+            
+            <div class="text-sm">
+                &copy; 2024 Resolve+. Todos os direitos reservados.
+            </div>
+
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-blue-400 transition"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i data-lucide="linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification (Custom alert) -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-green-600 text-white px-6 py-3 rounded-xl shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-[100] flex items-center">
+        <i data-lucide="check-circle" class="mr-2"></i>
+        Mensagem enviada com sucesso! Entraremos em contacto brevemente.
+    </div>
+
+    <script>
+        // Inicializar ícones
+        lucide.createIcons();
+
+        // Mobile Menu Toggle (Simulação)
+        const btn = document.getElementById('mobile-menu-btn');
+        btn.onclick = () => {
+            alert('Menu mobile ativado. Aqui abriria o painel de navegação.');
+        };
+
+        // Form Submit Logic
+        document.getElementById('contact-form').onsubmit = (e) => {
+            e.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        };
+    </script>
+</body>
+</html>
