@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolve+ | Pintura, Remodelação e Jardinagem</title>
+    <title>Resolve+ | Soluções Completas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -14,10 +14,16 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
                         url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
+        }
+
+        .search-container {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .service-card:hover {
@@ -39,7 +45,6 @@
                     <span class="text-2xl font-bold tracking-tight text-slate-800">Resolve<span class="text-blue-600">+</span></span>
                 </div>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#inicio" class="text-slate-600 hover:text-blue-600 font-medium transition">Início</a>
                     <a href="#servicos" class="text-slate-600 hover:text-blue-600 font-medium transition">Serviços</a>
@@ -49,7 +54,6 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="p-2">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -59,23 +63,39 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-gradient h-screen flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                Transformamos o seu espaço com <span class="text-blue-400">Excelência</span>
+    <!-- Hero Section com Entrada Unificada -->
+    <section id="inicio" class="hero-gradient min-h-screen flex items-center justify-center text-center text-white px-4 pt-20">
+        <div class="max-w-5xl w-full">
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Tudo o que precisa num <span class="text-blue-400">só lugar</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-                Especialistas em pintura, remodelações gerais, trabalhos em granito e manutenção de jardins. Qualidade garantida para a sua casa ou empresa.
+            <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
+                Pintura, remodelação, jardinagem e muito mais. Escolha o serviço e nós resolvemos com excelência profissional.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#servicos" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center">
-                    Ver Nossos Serviços
-                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
-                </a>
-                <a href="#contacto" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg transition">
-                    Contacto Direto
-                </a>
+
+            <!-- Barra de Entrada Unificada -->
+            <div class="search-container max-w-3xl mx-auto p-2 rounded-2xl md:rounded-full shadow-2xl flex flex-col md:flex-row items-center gap-2">
+                <div class="flex items-center w-full px-6 py-3 md:py-0">
+                    <i data-lucide="search" class="text-blue-400 w-5 h-5 mr-3"></i>
+                    <select id="hero-service-select" class="bg-transparent w-full text-white outline-none cursor-pointer text-lg font-medium appearance-none">
+                        <option value="" class="text-slate-900">O que deseja resolver hoje?</option>
+                        <option value="pintura" class="text-slate-900">Preciso de Pintura</option>
+                        <option value="remodelacao" class="text-slate-900">Quero Remodelar a Casa</option>
+                        <option value="granito" class="text-slate-900">Trabalhos em Granito</option>
+                        <option value="jardinagem" class="text-slate-900">Manutenção de Jardim</option>
+                    </select>
+                </div>
+                <div class="hidden md:block h-8 w-px bg-white/20"></div>
+                <button onclick="handleHeroSelection()" class="w-full md:w-auto whitespace-nowrap bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-xl md:rounded-full font-bold text-lg transition-all flex items-center justify-center group">
+                    Começar Agora
+                    <i data-lucide="chevron-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-slate-400 font-medium">
+                <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-blue-500"></i> Orçamentos Grátis</span>
+                <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-blue-500"></i> Profissionais Certificados</span>
+                <span class="flex items-center"><i data-lucide="check" class="w-4 h-4 mr-1 text-blue-500"></i> Garantia de Qualidade</span>
             </div>
         </div>
     </section>
@@ -113,81 +133,103 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Pintura -->
-                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div id="card-pintura" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="paint-bucket" class="w-8 h-8"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Pintura</h4>
-                    <p class="text-slate-600 mb-4">Interiores e exteriores com acabamentos de alta qualidade e proteção duradoura.</p>
+                    <p class="text-slate-600 mb-6 text-sm">Acabamentos perfeitos para revitalizar o seu imóvel.</p>
+                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Pintura de Interiores</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Pintura de Fachadas</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-blue-600 mr-2"></i> Tratamento de Humidades</li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-blue-50 text-blue-600 py-3 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">
+                        Solicitar Orçamento
+                    </a>
                 </div>
 
                 <!-- Remodelação -->
-                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div id="card-remodelacao" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="hammer" class="w-8 h-8"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Remodelação</h4>
-                    <p class="text-slate-600 mb-4">Renovação completa de cozinhas, casas de banho e espaços comerciais.</p>
+                    <p class="text-slate-600 mb-6 text-sm">Transformamos a sua casa no espaço dos seus sonhos.</p>
+                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Cozinhas e WCs</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Canalização e Eletricidade</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-orange-600 mr-2"></i> Pladur e Tetos Falsos</li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-orange-50 text-orange-600 py-3 rounded-xl font-bold hover:bg-orange-600 hover:text-white transition">
+                        Solicitar Orçamento
+                    </a>
                 </div>
 
                 <!-- Granito -->
-                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div id="card-granito" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="layers" class="w-8 h-8"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Granito & Pedra</h4>
-                    <p class="text-slate-600 mb-4">Instalação de bancadas, pavimentos e revestimentos em pedra natural.</p>
+                    <p class="text-slate-600 mb-6 text-sm">A elegância e durabilidade da pedra natural na sua obra.</p>
+                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Bancadas de Cozinha</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Revestimento de Escadas</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-slate-600 mr-2"></i> Soleiras e Peitoris</li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-slate-100 text-slate-700 py-3 rounded-xl font-bold hover:bg-slate-700 hover:text-white transition">
+                        Solicitar Orçamento
+                    </a>
                 </div>
 
                 <!-- Jardinagem -->
-                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div id="card-jardinagem" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col h-full">
                     <div class="w-14 h-14 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
                         <i data-lucide="sprout" class="w-8 h-8"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Jardinagem</h4>
-                    <p class="text-slate-600 mb-4">Manutenção, plantação e design de espaços verdes residenciais e públicos.</p>
+                    <p class="text-slate-600 mb-6 text-sm">Criamos e mantemos espaços verdes impecáveis.</p>
+                    <ul class="text-slate-600 space-y-2 mb-8 text-sm flex-grow">
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Manutenção de Jardins</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Sistemas de Rega</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Corte de Relva e Podas</li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-green-50 text-green-600 py-3 rounded-xl font-bold hover:bg-green-600 hover:text-white transition">
+                        Solicitar Orçamento
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Galeria / Projetos -->
-    <section id="galeria" class="py-24 bg-white">
+    <!-- Galeria -->
+    <section id="galeria" class="py-24 bg-white border-y">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-center md:text-left">
                 <div>
                     <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3">Portfólio</h2>
                     <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Projetos em Destaque</h3>
                 </div>
-                <p class="text-slate-500 max-w-md">Uma pequena amostra da dedicação e detalhe que colocamos em cada obra realizada.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="group relative overflow-hidden rounded-2xl aspect-video">
-                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" alt="Remodelação Interior" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
-                        <div>
-                            <p class="text-blue-400 font-bold text-sm">Remodelação</p>
-                            <h5 class="text-white font-bold text-lg">Apartamento Moderno</h5>
-                        </div>
+                        <div><p class="text-blue-400 font-bold text-sm">Remodelação</p><h5 class="text-white font-bold text-lg">Apartamento Moderno</h5></div>
                     </div>
                 </div>
                 <div class="group relative overflow-hidden rounded-2xl aspect-video">
-                    <img src="https://images.unsplash.com/photo-1558905648-31232286a4e2?auto=format&fit=crop&q=80&w=800" alt="Trabalho em Granito" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1558905648-31232286a4e2?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
-                        <div>
-                            <p class="text-blue-400 font-bold text-sm">Granito</p>
-                            <h5 class="text-white font-bold text-lg">Cozinha em Granito Negro</h5>
-                        </div>
+                        <div><p class="text-blue-400 font-bold text-sm">Granito</p><h5 class="text-white font-bold text-lg">Cozinha Premium</h5></div>
                     </div>
                 </div>
                 <div class="group relative overflow-hidden rounded-2xl aspect-video">
-                    <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800" alt="Jardinagem" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
+                    <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800" class="object-cover w-full h-full transition duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
-                        <div>
-                            <p class="text-blue-400 font-bold text-sm">Jardinagem</p>
-                            <h5 class="text-white font-bold text-lg">Jardim Residencial</h5>
-                        </div>
+                        <div><p class="text-blue-400 font-bold text-sm">Jardinagem</p><h5 class="text-white font-bold text-lg">Jardim Residencial</h5></div>
                     </div>
                 </div>
             </div>
@@ -195,118 +237,96 @@
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="py-24 bg-slate-900 text-white overflow-hidden relative">
+    <section id="contacto" class="py-24 bg-slate-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-16 relative z-10">
             <div class="lg:w-1/2">
                 <h2 class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-3">Fale Connosco</h2>
-                <h3 class="text-3xl md:text-5xl font-bold mb-8">Pronto para começar o seu projeto?</h3>
-                <p class="text-slate-400 text-lg mb-10">
-                    Entre em contacto para um orçamento gratuito. A nossa equipa está disponível para responder a todas as suas questões.
-                </p>
-                
+                <h3 class="text-3xl md:text-5xl font-bold mb-8">Pronto para começar?</h3>
+                <p class="text-slate-400 text-lg mb-10">Entre em contacto para um orçamento gratuito.</p>
                 <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="bg-blue-600/20 p-3 rounded-full text-blue-400">
-                            <i data-lucide="phone" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xl">+351 912 345 678</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="bg-blue-600/20 p-3 rounded-full text-blue-400">
-                            <i data-lucide="mail" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xl">geral@resolvemais.pt</span>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="bg-blue-600/20 p-3 rounded-full text-blue-400">
-                            <i data-lucide="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xl">Lisboa, Portugal</span>
-                    </div>
+                    <div class="flex items-center space-x-4"><div class="bg-blue-600/20 p-3 rounded-full text-blue-400"><i data-lucide="phone" class="w-6 h-6"></i></div><span class="text-xl">+351 912 345 678</span></div>
+                    <div class="flex items-center space-x-4"><div class="bg-blue-600/20 p-3 rounded-full text-blue-400"><i data-lucide="mail" class="w-6 h-6"></i></div><span class="text-xl">geral@resolvemais.pt</span></div>
                 </div>
             </div>
 
             <div class="lg:w-1/2 bg-white rounded-3xl p-8 md:p-10 text-slate-900">
                 <form id="contact-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label class="font-semibold text-sm text-slate-700">Nome</label>
-                            <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="font-semibold text-sm text-slate-700">Telemóvel</label>
-                            <input type="tel" placeholder="Seu contacto" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
-                        </div>
+                        <div class="space-y-2"><label class="font-semibold text-sm">Nome</label><input type="text" placeholder="Seu nome" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></div>
+                        <div class="space-y-2"><label class="font-semibold text-sm">Telemóvel</label><input type="tel" placeholder="Seu contacto" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></div>
                     </div>
                     <div class="space-y-2">
-                        <label class="font-semibold text-sm text-slate-700">Serviço de Interesse</label>
-                        <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
-                            <option>Pintura</option>
-                            <option>Remodelação</option>
-                            <option>Granito</option>
-                            <option>Jardinagem</option>
-                            <option>Outro</option>
+                        <label class="font-semibold text-sm">Serviço de Interesse</label>
+                        <select id="contact-service-select" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="pintura">Pintura</option>
+                            <option value="remodelacao">Remodelação</option>
+                            <option value="granito">Granito</option>
+                            <option value="jardinagem">Jardinagem</option>
+                            <option value="outro">Outro</option>
                         </select>
                     </div>
-                    <div class="space-y-2">
-                        <label class="font-semibold text-sm text-slate-700">Mensagem</label>
-                        <textarea rows="4" placeholder="Descreva brevemente o seu projeto..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                        Enviar Pedido de Orçamento
-                    </button>
+                    <div class="space-y-2"><label class="font-semibold text-sm">Mensagem</label><textarea rows="4" placeholder="Descreva o seu projeto..." class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-blue-500"></textarea></div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">Enviar Pedido</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
+    <footer class="bg-slate-950 text-slate-500 py-12">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex items-center space-x-2">
-                <div class="bg-blue-600 p-1.5 rounded-md text-white">
-                    <i data-lucide="plus-circle" class="w-5 h-5"></i>
-                </div>
+                <div class="bg-blue-600 p-1.5 rounded-md text-white"><i data-lucide="plus-circle" class="w-5 h-5"></i></div>
                 <span class="text-xl font-bold tracking-tight text-white">Resolve<span class="text-blue-600">+</span></span>
             </div>
-            
-            <div class="text-sm">
-                &copy; 2024 Resolve+. Todos os direitos reservados.
-            </div>
-
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-blue-400 transition"><i data-lucide="facebook"></i></a>
-                <a href="#" class="hover:text-blue-400 transition"><i data-lucide="instagram"></i></a>
-                <a href="#" class="hover:text-blue-400 transition"><i data-lucide="linkedin"></i></a>
-            </div>
+            <div class="text-sm">&copy; 2024 Resolve+. Todos os direitos reservados.</div>
         </div>
     </footer>
 
-    <!-- Toast Notification (Custom alert) -->
+    <!-- Toast Notification -->
     <div id="toast" class="fixed bottom-8 right-8 bg-green-600 text-white px-6 py-3 rounded-xl shadow-2xl translate-y-24 opacity-0 transition-all duration-300 z-[100] flex items-center">
-        <i data-lucide="check-circle" class="mr-2"></i>
-        Mensagem enviada com sucesso! Entraremos em contacto brevemente.
+        <i data-lucide="check-circle" class="mr-2"></i> Mensagem enviada com sucesso!
     </div>
 
     <script>
-        // Inicializar ícones
         lucide.createIcons();
 
-        // Mobile Menu Toggle (Simulação)
-        const btn = document.getElementById('mobile-menu-btn');
-        btn.onclick = () => {
-            alert('Menu mobile ativado. Aqui abriria o painel de navegação.');
-        };
+        // Lógica de Seleção Unificada no Hero
+        function handleHeroSelection() {
+            const select = document.getElementById('hero-service-select');
+            const service = select.value;
+            
+            if (!service) {
+                // Se nada for selecionado, apenas desce para os serviços
+                window.location.href = '#servicos';
+                return;
+            }
 
-        // Form Submit Logic
+            // Se selecionado, faz scroll para o card específico e destaca
+            const targetCard = document.getElementById('card-' + service);
+            const contactSelect = document.getElementById('contact-service-select');
+            
+            // Pré-selecionar no formulário de contacto
+            contactSelect.value = service;
+
+            // Scroll suave
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Efeito visual temporário no card
+            targetCard.classList.add('ring-4', 'ring-blue-500', 'scale-105');
+            setTimeout(() => {
+                targetCard.classList.remove('ring-4', 'ring-blue-500', 'scale-105');
+            }, 2000);
+        }
+
+        const btn = document.getElementById('mobile-menu-btn');
+        btn.onclick = () => { alert('Menu mobile funcionalidade futura.'); };
+
         document.getElementById('contact-form').onsubmit = (e) => {
             e.preventDefault();
             const toast = document.getElementById('toast');
             toast.classList.remove('translate-y-24', 'opacity-0');
-            
-            setTimeout(() => {
-                toast.classList.add('translate-y-24', 'opacity-0');
-            }, 4000);
+            setTimeout(() => { toast.classList.add('translate-y-24', 'opacity-0'); }, 4000);
         };
     </script>
 </body>
